@@ -39,7 +39,7 @@
                     <p><span th:text="${comment.content}" class="commentContent">content</span></p>
                 </div>
                 <br />
-                <form method="POST" th:action="@{/photocan/{id}/comment(id=${current})}" enctype="multipart/form-data">
+                <form method="POST" th:action="@{/photocan/{id}/comment(id=${current})}">
                     <p>Author: <br /><input type="text" name="author"/></p>
                     <p>Comment: <br /><textarea name="content"></textarea></p>
                     <input type="submit" value="Comment"/>

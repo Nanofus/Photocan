@@ -20,6 +20,7 @@ import app.domain.FileObject;
 import app.repository.CommentRepository;
 import app.repository.ImageRepository;
 import java.util.Date;
+import java.util.List;
 
 /**
  *
@@ -67,7 +68,7 @@ public class PhotoController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public String save(@RequestParam("file") MultipartFile file) throws IOException {
+    public String saveImage(@RequestParam("file") MultipartFile file) throws IOException {
         FileObject fo = new FileObject();
         fo.setContent(file.getBytes());
 
@@ -75,7 +76,7 @@ public class PhotoController {
 
         return "redirect:/photocan";
     }
-    
+
     @RequestMapping(value = "/{id}/comment", method = RequestMethod.POST)
     public String addComment(@PathVariable long id, @RequestParam("author") String author, @RequestParam("content") String content) {
         Comment comment = new Comment();
@@ -83,9 +84,9 @@ public class PhotoController {
         comment.setContent(content);
         comment.setCreated(new Date());
         comment.setImageId(id);
-        
+
         commentRepository.save(comment);
-        
+
         return "redirect:/photocan/{id}/";
     }
 }
