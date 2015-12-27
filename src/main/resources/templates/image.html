@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head lang="en">
+        <meta charset="UTF-8" />
+        <title>Photocan</title>
+    </head>
+    <body>
+        <div th:replace="fragments/header :: header"></div>
+
+        <main>
+            <div th:if="${current != null}">
+                <img th:src="@{/photocan/{id}/content(id=${current})}"/>
+            </div>
+
+            <p>
+                <span th:if="${previous} != null">
+                    <span><a th:href="@{/photocan/{id}(id=${previous})}">Previous</a></span>
+                </span>
+                <span th:if="${previous} == null">
+                    <span>Previous</span>
+                </span>
+                <span> | </span>
+                <span th:if="${next} != null">
+                    <span><a th:href="@{/photocan/{id}(id=${next})}">Next</a></span>
+                </span>
+                <span th:if="${next} == null">
+                    <span>Next</span>
+                </span>
+            </p>
+
+            <h3>Add new content</h3>
+
+            <form method="POST" action="/photocan" enctype="multipart/form-data">
+                <input type="file" name="file" id="file"/>
+                <input type="submit" value="Upload"/>
+            </form>
+
+        </main>
+        
+        <div th:replace="fragments/footer :: footer"></div>
+    </body>
+</html>
