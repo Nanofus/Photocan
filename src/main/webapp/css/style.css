@@ -1,0 +1,64 @@
+/* Structure */
+html {
+  height: 100%; }
+
+body {
+  font: 100% "Open Sans", sans-serif;
+  color: #00ADB5;
+  background-color: #222831;
+  height: 100%; }
+
+header {
+  position: fixed;
+  top: 0;
+  width: 100%; }
+
+main {
+  background-color: #393E46;
+  width: 55rem;
+  margin: 0 auto;
+  margin-top: 25px;
+  margin-bottom: 50px;
+  position: relative; }
+
+#wrapper {
+  position: relative; }
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%; }
+
+section {
+  padding-top: 20px;
+  padding-bottom: 30px;
+  padding-left: 20px;
+  padding-right: 20px; }
+
+/* Other */
+a {
+  color: #1cf5ff;
+  text-decoration: none; }
+
+img .thumbnail {
+  width: 100%;
+  height: auto; }
+
+.thumbContainer {
+  float: left;
+  padding: 10px 10px;
+  width: 140px;
+  height: 140px;
+  overflow: hidden; }
+
+#addContent {
+  clear: both; }
+
+.comment .commenter {
+  font-weight: bold; }
+.comment .commentContent {
+  padding-left: 20px; }
+.comment p {
+  padding-left: 20px; }
+
+/*# sourceMappingURL=style.css.map */

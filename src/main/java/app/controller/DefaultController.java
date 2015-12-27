@@ -10,6 +10,6 @@ public class DefaultController {
 
     @RequestMapping(method = RequestMethod.GET)
     public String redirect() {
-        return "redirect:/gifs";
+        return "redirect:/photocan";
     }
 }

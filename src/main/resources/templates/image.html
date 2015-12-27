@@ -3,40 +3,50 @@
     <head lang="en">
         <meta charset="UTF-8" />
         <title>Photocan</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="theme-color" content="#222831" /> <!-- For mobile Chrome -->
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css' />
+        <link rel="stylesheet" th:href="@{/css/style.css}" />
     </head>
     <body>
         <div th:replace="fragments/header :: header"></div>
 
         <main>
-            <div th:if="${current != null}">
-                <img th:src="@{/photocan/{id}/content(id=${current})}"/>
-            </div>
+            <section>                
+                <p>
+                    <span th:if="${previous} != null">
+                        <span><a th:href="@{/photocan/{id}(id=${previous})}">Previous</a></span>
+                    </span>
+                    <span th:if="${previous} == null">
+                        <span>Previous</span>
+                    </span>
+                    <span> | </span>
+                    <span th:if="${next} != null">
+                        <span><a th:href="@{/photocan/{id}(id=${next})}">Next</a></span>
+                    </span>
+                    <span th:if="${next} == null">
+                        <span>Next</span>
+                    </span>
+                </p>
 
-            <p>
-                <span th:if="${previous} != null">
-                    <span><a th:href="@{/photocan/{id}(id=${previous})}">Previous</a></span>
-                </span>
-                <span th:if="${previous} == null">
-                    <span>Previous</span>
-                </span>
-                <span> | </span>
-                <span th:if="${next} != null">
-                    <span><a th:href="@{/photocan/{id}(id=${next})}">Next</a></span>
-                </span>
-                <span th:if="${next} == null">
-                    <span>Next</span>
-                </span>
-            </p>
-
-            <h3>Add new content</h3>
-
-            <form method="POST" action="/photocan" enctype="multipart/form-data">
-                <input type="file" name="file" id="file"/>
-                <input type="submit" value="Upload"/>
-            </form>
-
+                <div th:if="${current != null}">
+                    <img th:src="@{/photocan/{id}/content(id=${current})}"/>
+                </div>
+            </section>
+            <section id="comments">
+                <div th:each="comment : ${comments}" class="clearfix comment">
+                    <p><span th:text="${comment.author}" class="commenter">commenter</span> (<span th:text="${comment.created}">timestamp</span>):</p>
+                    <p><span th:text="${comment.content}" class="commentContent">content</span></p>
+                </div>
+                <br />
+                <form method="POST" th:action="@{/photocan/{id}/comment(id=${current})}" enctype="multipart/form-data">
+                    <p>Author: <br /><input type="text" name="author"/></p>
+                    <p>Comment: <br /><textarea name="content"></textarea></p>
+                    <input type="submit" value="Comment"/>
+                </form>
+            </section>
         </main>
-        
+
         <div th:replace="fragments/footer :: footer"></div>
     </body>
 </html>

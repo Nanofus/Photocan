@@ -1,6 +1,0 @@
-wad\controller\DefaultController.class
-wad\repository\GifRepository.class
-wad\domain\FileObject.class
-wad\profiles\ProdProfile.class
-wad\profiles\DevProfile.class
-wad\Application.class

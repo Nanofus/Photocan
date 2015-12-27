@@ -1,0 +1,94 @@
+$font-stack: 'Open Sans', sans-serif;
+
+$background-color: #222831;
+$area-color: #393E46;
+$area-color-lower: darken($area-color, 20%);
+$text-color: #00ADB5;
+$text-color-lighter: lighten($text-color, 20%);
+$highlight-color: #EEEEEE;
+
+$content-area-width: 55rem;
+
+/* Structure */
+
+html {
+	height: 100%;
+}
+
+body {
+	font: 100% $font-stack;
+	color: $text-color;
+	background-color: $background-color;
+	height: 100%;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+main {
+	background-color: $area-color;
+	width: $content-area-width;
+	
+	margin: 0 auto;
+	margin-top: 25px;
+	margin-bottom: 50px;
+	position: relative;
+}
+
+#wrapper {
+	position: relative;
+}
+
+footer {
+	position:fixed;
+	bottom: 0;
+	width: 100%;
+}
+
+section {
+	padding-top: 20px;
+	padding-bottom: 30px;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+/* Other */
+
+a {
+	color: $text-color-lighter;
+    text-decoration: none;
+}
+
+img {
+	.thumbnail {
+		width: 100%;
+		height: auto;
+	}
+}
+
+.thumbContainer { 
+	float:left;
+	padding: 10px 10px;
+    width: 140px; 
+    height: 140px; 
+    overflow: hidden;
+}
+
+#addContent {
+	clear: both;
+}
+
+.comment {
+	.commenter {
+		font-weight: bold;
+	}
+	.commentContent {
+		padding-left: 20px;
+	}
+	p {
+		padding-left: 20px;
+	}
+}

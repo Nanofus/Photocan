@@ -3,40 +3,36 @@
     <head lang="en">
         <meta charset="UTF-8" />
         <title>Photocan</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="theme-color" content="#222831" /> <!-- For mobile Chrome -->
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css' />
+        <link rel="stylesheet" th:href="@{/css/style.css}" />
     </head>
     <body>
         <div th:replace="fragments/header :: header"></div>
 
-        <main>
-            <div th:if="${current != null}">
-                <img th:src="@{/photocan/{id}/content(id=${current})}"/>
-            </div>
+        <div id = "wrapper">
+            <main>
+                <section id="imagelist">
+                    <h3>Images</h3>
+                    <div th:each="image : ${images}" class="clearfix">
+                        <div class="thumbContainer">
+                            <a th:href="@{/photocan/{id}(id=${image.id})}"><img class="thumbnail" th:src="@{/photocan/{id}/content(id=${image.id})}"/></a>
+                        </div>
+                    </div>
+                </section>
 
-            <p>
-                <span th:if="${previous} != null">
-                    <span><a th:href="@{/photocan/{id}(id=${previous})}">Previous</a></span>
-                </span>
-                <span th:if="${previous} == null">
-                    <span>Previous</span>
-                </span>
-                <span> | </span>
-                <span th:if="${next} != null">
-                    <span><a th:href="@{/photocan/{id}(id=${next})}">Next</a></span>
-                </span>
-                <span th:if="${next} == null">
-                    <span>Next</span>
-                </span>
-            </p>
+                <section id="addContent">
+                    <h3>Add new content</h3>
+                    <form method="POST" action="/photocan" enctype="multipart/form-data">
+                        <input type="file" name="file" id="file"/>
+                        <input type="submit" value="Upload"/>
+                    </form>
+                </section>
 
-            <h3>Add new content</h3>
+            </main>
+        </div>
 
-            <form method="POST" action="/photocan" enctype="multipart/form-data">
-                <input type="file" name="file" id="file"/>
-                <input type="submit" value="Upload"/>
-            </form>
-
-        </main>
-        
         <div th:replace="fragments/footer :: footer"></div>
     </body>
 </html>

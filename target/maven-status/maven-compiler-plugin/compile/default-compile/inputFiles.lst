@@ -1,7 +1,9 @@
-D:\Photocan\src\main\java\wad\profiles\DevProfile.java
-D:\Photocan\src\main\java\wad\controller\DefaultController.java
-D:\Photocan\src\main\java\wad\profiles\ProdProfile.java
-D:\Photocan\src\main\java\wad\domain\FileObject.java
-D:\Photocan\src\main\java\wad\Application.java
-D:\Photocan\src\main\java\wad\repository\GifRepository.java
-D:\Photocan\src\main\java\wad\controller\PhotoController.java
+D:\Photocan\src\main\java\app\Application.java
+D:\Photocan\src\main\java\app\domain\FileObject.java
+D:\Photocan\src\main\java\app\repository\ImageRepository.java
+D:\Photocan\src\main\java\app\profiles\ProdProfile.java
+D:\Photocan\src\main\java\app\repository\CommentRepository.java
+D:\Photocan\src\main\java\app\profiles\DevProfile.java
+D:\Photocan\src\main\java\app\domain\Comment.java
+D:\Photocan\src\main\java\app\controller\DefaultController.java
+D:\Photocan\src\main\java\app\controller\PhotoController.java

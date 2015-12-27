@@ -34,7 +34,7 @@ public class ProdProfile {
 
         factory.setJpaVendorAdapter(vendorAdapter);
         factory.setPersistenceUnitName("production");
-        factory.setPackagesToScan("wad.domain");
+        factory.setPackagesToScan("app.domain");
         factory.setDataSource(dataSource());
 
         factory.afterPropertiesSet();
